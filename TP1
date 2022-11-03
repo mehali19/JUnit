@@ -1,0 +1,50 @@
+package projetCalculatriceTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import projetCalculatrice.Calculatrice;
+
+class CalculatriceTest {
+
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		System.out.println("BeforeAll 0");
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+		System.out.println("AfterAll 2");
+	}
+
+	@BeforeEach
+	void setUp() throws Exception {
+		System.out.println("BeforeEach 3");
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		System.out.println("AfterEach 4");
+	}
+
+	@Test
+	void test() {
+		System.out.println("Test 1");
+	}
+	
+	@Test
+	public void addTest() {
+		Calculatrice calculatriceTest = new Calculatrice();
+		int res =calculatriceTest.add(1,2);
+		
+		System.out.println("Resultat : "+ res);
+		System.out.println("Resultat demandé = 3");
+		
+	}
+
+}
