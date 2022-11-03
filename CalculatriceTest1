@@ -1,0 +1,68 @@
+package projetCalculatriceTest;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.jupiter.api.TestMethodOrder;
+
+import projetCalculatrice.Calculatrice;
+
+@TestInstance(Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class CalculatriceTest {
+	public int max = 0;
+
+	@Test
+	@DisplayName("Test int normal")
+	public void testadd1() {
+		Calculatrice calculatrice = new Calculatrice();
+		int resultat = calculatrice.add(1, 2);
+		assertEquals(3, resultat);
+	}
+
+	@Test
+	@DisplayName("Test int pas egale zero")
+	public void testadd() {
+		Calculatrice calculatrice = new Calculatrice();
+		int resultat = calculatrice.add(-2, 2);
+		assertNotEquals(0, (int) (Math.random() * 100) + 1);
+	}
+
+	@Test
+	@DisplayName("Test int max")
+	public void testadd2() {
+		Calculatrice calculatrice = new Calculatrice();
+		int resultat = calculatrice.add(Integer.MAX_VALUE, 1);
+		assertEquals(Integer.MIN_VALUE, resultat);
+	}
+
+	@Test
+	@DisplayName("Test int min")
+	public void testadd3() {
+		Calculatrice calculatrice = new Calculatrice();
+		int resultat = calculatrice.add(Integer.MIN_VALUE, -1);
+		assertEquals(Integer.MAX_VALUE, resultat);
+	}
+	
+	@Test
+	@DisplayName("Test int different de zero")
+	public void testadd4() {
+		Calculatrice calculatrice = new Calculatrice();
+		int resultat = calculatrice.add(-2, 2);
+		assertNotEquals(0, resultat);
+	}
+	
+	@Test
+	@DisplayName("Test int doit etre inferieur a 100")
+	public void testadd5() {
+		Calculatrice calculatrice = new Calculatrice();
+		int resultat = calculatrice.add(-2, 2);
+		assertTrue(resultat < 100);
+	}
+}
